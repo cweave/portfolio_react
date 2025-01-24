@@ -1,0 +1,38 @@
+@use '../_colors.scss';
+@import '../functions/_functions';
+
+nav {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 12px;
+
+  .nav-bar {
+    background-color: colors.$black-lighter;
+    width: 95vw;
+    height: 80px;
+    border-radius: 20px;
+    padding: rem(6) rem(24);
+
+    display: grid;
+    grid-template-columns: 100px 1fr;
+
+    &__navigation {
+      place-self: center end;
+      display: inline-flex;
+      gap: rem(48);
+      list-style: none;
+    }
+
+    &__logo {
+      background: no-repeat center / 60px 60px url('../../../public/cw.png');
+
+    }
+
+    a {      
+      text-transform: uppercase;
+      font-size: rem(24);
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@use '_reset.scss';
+@use '_colors.scss';
+@use './navbar/navbar';
+@use './projects/project-cards';
+@import './functions/_functions';
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  background-color: colors.$black;
+  min-height: calc(100% - 56px * 2);
+  min-width: calc(100% - 56px * 2);
+}
+
+.body-wrapper {
+  position: relative;
+  margin: rem(24) rem(36);
+  min-height: calc(100vh - 24px * 2 - 92px);
+  min-width: calc(10vw - 24px * 2);
+  padding: rem(32);
+}
+
+.content-wrapper {
+  padding: rem(32);
+  margin-bottom: rem(64); 
+  position: relative;
+  
+  h1,
+  h2 {
+    padding: rem(32);
+  }
+  h1 {
+    font-size: rem(96);
+    color: colors.$white;
+    line-height: rem(100);
+    letter-spacing: -0.96;
+  }
+
+  h2 {
+    font-size: rem(48);
+    color: colors.$green;
+    line-height: rem(28);
+    letter-spacing: -0.96;
+    margin-bottom: rem(28);
+  }
+
+  p {
+    color: colors.$white;
+    font-size: rem(32);
+    line-height: rem(44);
+    letter-spacing: -0.32;
+    padding: rem(32);
+  }
+
+}
+
+a {
+    color: colors.$white;
+    background: colors.$black-lightest;
+    text-decoration: none;
+
+    background:
+    linear-gradient(
+      to right,
+      colors.$orange,
+      colors.$orange
+    ),
+    linear-gradient(
+      to right,
+      colors.$orange,
+      colors.$purple,
+      colors.$green
+  );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  
+  &:hover,
+  &:active,
+  &:focus {
+    color: colors.$orange;
+    background-size: 0 3px, 100% 3px;
+  }
+}
+
+.landing-splash {
+  position: relative;
+  min-height: calc(100vh - 24px * 2 - 92px);
+  background: no-repeat left bottom -50px/40px 800px url('../../public/view-about.svg');
+  
+  .background-wrapper {
+    height: calc(100% - 24px * 2);
+    width: calc(100vw - 36px * 2);
+    position: absolute;
+    top: 0;
+    left: -36px;
+    background-image: url('../../public/landing-bg.svg');
+
+    .landing__moon {
+      background: no-repeat right/100% url('../../public/moon.svg');
+      width: 500px;
+      height: 285px;
+
+      &-wrapper {
+        top: 400px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.about-line {
+  // width: 2px;
+  // height: 800px;
+  // // position: absolute;
+  // // z-index: 2;
+  // left: calc(32px + 24px);
+  // bottom: 24px;
+  // background: no-repeat left 20px center/2px 100% url('../../public/line.svg');
+  background: no-repeat left 20px center/2px 100% linear-gradient(
+    105deg,
+    #56D364 39%,
+    #2EA043 50%,
+    #0D1117 96%
+  );  
+}
+
+.projects-line {
+  // width: 2px;
+  // height: 800px;
+  // // position: absolute;
+  // // z-index: 2;
+  // left: calc(32px + 24px);
+  // bottom: 24px;
+  // background: no-repeat left 20px center/2px 100% url('../../public/line.svg');
+  background: no-repeat left 20px center/2px 100% linear-gradient(
+    105deg,
+    #EA6045 33.3%,
+    #EA6045 66.6%,
+    #0D1117 96%
+  ), no-repeat left 20px center/50px 100% url('../../public/github.svg');  
+}
