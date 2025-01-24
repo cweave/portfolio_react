@@ -28,7 +28,7 @@ const ProjectCards = () => {
       })
 
     setFilteredProjects(cloneFilter)
-  }, [])
+  }, [filteredProjects])
 
   useEffect(() => {
     const api = "https://api.github.com/users/cweave/repos"
