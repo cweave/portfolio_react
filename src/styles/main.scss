@@ -2,6 +2,7 @@
 @use '_colors.scss';
 @use './navbar/navbar';
 @use './projects/project-cards';
+@use './components/footer';
 @import './functions/_functions';
 
 html {

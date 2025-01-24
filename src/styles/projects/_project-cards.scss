@@ -11,10 +11,10 @@ $mq-vert-small: 650px;
 .project-cards {
   &-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+    grid-template-columns: repeat(auto-fill, minmax(325px, 350px));
     grid-gap: 2em;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(300px, 350px);
+    grid-auto-columns: minmax(325px, 350px);
     overflow-x: auto;
     padding: 3em 0;
     margin: 0 3em;

@@ -5,7 +5,7 @@ const ProjectCards = () => {
 
   const filterGitResults = useCallback(async params => {
     const cloneFilter = [...filteredProjects]
-    const days = 2000;
+    const days = 365;
     const currentDate = new Date(Date.now()).toISOString().slice(0, 10)
     const maxDateTime = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
 
