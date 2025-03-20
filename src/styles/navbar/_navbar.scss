@@ -1,14 +1,14 @@
 @use '../_colors.scss';
 @import '../functions/_functions';
 
-nav {
+.navbar {
   width: 100%;
   display: flex;
   align-content: center;
   justify-content: center;
   margin-top: 12px;
 
-  .nav-bar {
+  &__container {
     background-color: colors.$black-lighter;
     width: 95vw;
     height: 80px;
@@ -17,22 +17,79 @@ nav {
 
     display: grid;
     grid-template-columns: 100px 1fr;
+    place-content: center;
+  }
 
-    &__navigation {
-      place-self: center end;
-      display: inline-flex;
-      gap: rem(48);
-      list-style: none;
-    }
+  &__logo {
+    background: no-repeat center / 60px 60px url('../../../public/cw.png');
+    height: 60px;
+    width: 60px;
+  }  
 
-    &__logo {
-      background: no-repeat center / 60px 60px url('../../../public/cw.png');
-
-    }
+  &__navigation {
+    place-self: center end;
+    display: inline-flex;
+    gap: rem(48);
 
     a {      
       text-transform: uppercase;
       font-size: rem(24);
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+    }
+
+    ul li:not(:last-child) {
+      margin-right: 60px;
+    }        
+  }
+}
+  
+.menu-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar__navigation ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-icon {
+    display: inline-flex;
+    justify-content: end;
+    cursor: pointer;
+  }
+
+  .navbar__navigation {
+    position: absolute;
+    right: 0;
+    top: 95px;
+    right: 12px;
+    background-color: colors.$black-lighter;
+    border-radius: 20px;
+    width: 0px;
+    height: calc(100vh - 100px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+    z-index: 2;
+
+    &.active {
+      width: 270px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    ul li {
+      padding: rem(24) rem(6);
     }
   }
 }

@@ -33,6 +33,7 @@ body {
   h2 {
     padding: rem(32);
   }
+  
   h1 {
     font-size: rem(96);
     color: colors.$white;
@@ -55,7 +56,24 @@ body {
     letter-spacing: -0.32;
     padding: rem(32);
   }
+}
 
+@media (max-width: 640px) {
+  .content-wrapper {
+    h1 {
+      font-size: rem(62);
+      line-height: rem(62);
+    }
+
+    h2 {
+      font-size: rem(48);
+    }
+
+    p {
+      font-size: rem(32);
+      line-height: rem(46);
+    }
+  }
 }
 
 a {
