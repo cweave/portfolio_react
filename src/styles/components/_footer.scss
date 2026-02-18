@@ -6,53 +6,57 @@ footer {
   flex-direction: column;
   align-items: flex-end;
   margin-top: 2em;
-  width: 100%; /* Ensure the footer spans the full width of the container */
-  height: 500px; /* Adjust height as needed */
+  width: 100%;
+  min-height: 280px;
   background: no-repeat center bottom / 100% auto url('../../../public/footer.svg');
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     order: 1;
-    margin: 0 1rem;
+    margin: 0 0 0.5rem;
     color: colors.$white;
   }
 
-  @media screen and (min-width: 500px) {
+  @media (min-width: 500px) {
     flex-direction: row;
     align-items: end;
     justify-content: space-between;
 
     p {
       order: unset;
+      margin: 0 1rem;
+      font-size: 1rem;
     }
   }
 }
 
 .social-links {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   list-style-type: none;
   padding: 0;
-  margin: 0 1rem;
+  margin: 0 0 0 1rem;
 
   li {
     a {
       background-image: none;
       display: flex;
       align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0.5em;
 
       span {
         margin-left: 0.5em;
         font-size: 1.15rem;
       }
     }
-
-    &:not(:last-of-type) {
-      margin-right: 10px;
-    }
   }
 
   svg {
-    width: 20px;
+    width: 22px;
+    height: 22px;
   }
 }

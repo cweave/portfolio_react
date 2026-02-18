@@ -11,44 +11,59 @@ $mq-vert-small: 650px;
 .project-cards {
   &-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(325px, 350px));
-    grid-gap: 2em;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(325px, 350px);
-    overflow-x: auto;
-    padding: 3em 0;
-    margin: 0 3em;
-    scrollbar-width: thin;
-    scrollbar-color: colors.$orange rgba(colors.$black-lighter, 0.5);
+    grid-template-columns: 1fr;
+    grid-gap: 1.5em;
+    padding: 1.5em 0;
+    margin-left: rem(50);
+    overflow-x: visible;
 
-    @media screen and (min-width: $small-bp) {
-      padding: 3em 1em;
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(auto-fill, minmax(min(325px, 100%), 1fr));
+      grid-gap: 2em;
+      padding: 2em 0;
+      margin: 0 1em;
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(auto-fill, minmax(325px, 350px));
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(325px, 350px);
+      overflow-x: auto;
+      padding: 3em 0;
+      margin: 0 3em;
+      scrollbar-width: thin;
+      scrollbar-color: colors.$orange rgba(colors.$black-lighter, 0.5);
     }
   }
-  
+
   box-shadow: 0 4px 8px rgba(colors.$black-lighter, 0.5);
   border-radius: 10px;
-  border-top: $border-size solid colors.$orange; 
-  border-left: $border-size solid colors.$orange; 
+  border-top: $border-size solid colors.$orange;
+  border-left: $border-size solid colors.$orange;
   border-right: $border-size solid colors.$black;
   border-bottom: $border-size solid colors.$black;
   place-content: flex-start center;
-  height: 400px;
+  min-height: 320px;
+  height: auto;
+  max-height: 420px;
   background-color: colors.$black-lighter;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  @media (min-width: 640px) {
+    min-height: 360px;
+    height: 400px;
+    max-height: none;
+  }
+
   @media (min-width: $mq-small) and (max-height: $mq-small) {
     $poster-border: 30px;
     border-top: 8px solid;
-  }
-
-  
+  }  
 
   .accent {
     color: colors.$white;
-    background: colors.$black-lightest;
     padding: 0.5em 0.75em;
     text-decoration: none;
 
@@ -77,20 +92,19 @@ $mq-vert-small: 650px;
     background-size: 0 3px, 100% 3px;
   }
 
-  // &__heading,
-  // .explanation {
-  //   background-color: var(--card-color);
-  // }
-
   &__heading {
-      padding: rem(6);      
-      margin: 0;
+    padding: rem(8);
+    margin: 0;
+
+    @media (min-width: 640px) {
+      padding: rem(6);
+    }
 
     &-title {
       display: block;
-      font-size: clamp(1.8em, 3vw, 2.5em);
+      font-size: clamp(1.25em, 4vw, 2.5em);
       letter-spacing: -0.03em;
-      line-height: 1;
+      line-height: 1.2;
       margin: $border-size;
       color: colors.$orange;
       word-break: break-word;
@@ -102,82 +116,37 @@ $mq-vert-small: 650px;
 
     &-updated {
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: colors.$gray;
     }
   }
 
-  
-
   &__description {
-    margin: 1em 0;
-    overflow-y: scroll;
+    margin: 0.75em 0;
+    overflow-y: auto;
+    padding: 0 rem(8);
+    -webkit-overflow-scrolling: touch;
 
     p {
       margin: 0;
-      // font-size: clamp(0.75rem, 0.7153rem + 1.6368vw, 1rem);
-      font-size: rem(24) !important;
-      line-height: rem(32) !important;
+      font-size: clamp(rem(14), 2vw, rem(24)) !important;
+      line-height: 1.4 !important;
     }
   }
-
-  // &:before,
-  // &:after {
-  //   content: "";
-  //   pointer-events: none;
-  //   position: absolute;
-  //   top: calc(10px - $border-size);
-  //   left: calc(10px - $border-size);
-  // }
-
-  // &:before {
-  //   right: calc(0px - $border-size);
-  //   bottom: calc(0px - $border-size);
-  //   border-left: 3px solid var(--background-color);
-  //   border-top: 3px solid var(--background-color);
-  //   z-index: 2;
-
-  //   @media (min-width: $mq-small) and (max-height: $mq-small) {
-  //     top: calc(30px - $border-size);
-  //   }
-  // }
-
-  // &:after {
-  //   z-index: 1;
-  //   right: calc(0px - $border-size - 12px);
-  //   bottom: calc(0px - $border-size - 12px);
-  //   border-right: 3px solid var(--card-color);
-  //   border-bottom: 3px solid var(--card-color);
-  //   border-top: 3px solid var(--card-color);
-  //   border-left: 3px solid var(--card-color);
-
-  //   @media (min-width: $mq-small) and (max-height: $mq-small) {
-  //     top: calc(30px - $border-size);
-  //   }
-  // }
-}
-
-.project-cards {
-  // border-color: var(--card-color);
 }
 
 .project__technologies {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   place-content: space-between space-evenly;
+  gap: 0.5em;
   margin: 0;
-  padding: 0;
-  padding-bottom: 1em;
+  padding: 0 rem(8) 1em;
   text-transform: uppercase;
-}
 
-// .sub-header {
-//   &-title {
-//     font-size: clamp(1.15em, 3vw, 2em);
-//     color: var(--primary-text);
-//     font-weight: 700;
-//     letter-spacing: 2px;
-//     text-transform: uppercase;
-//     text-shadow: 1px 1px 2px var(--card-color);
-//   }
-// }
+  li a {
+    min-height: 44px;
+    align-items: center;
+  }
+}

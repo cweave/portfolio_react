@@ -17,9 +17,10 @@ const NavBar = () => {
         </div>
         <div className={`navbar__navigation  ${showNavbar && "active"}`}>
           <ul>
-            <li><a href='#'>Home</a></li>
-            <li><a href='#about-christa'>About</a></li>
-            <li><a href='#projects'>Projects</a></li>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <li><a href='#' onClick={() => setShowNavbar(false)}>Home</a></li>
+            <li><a href='#about-christa' onClick={() => setShowNavbar(false)}>About</a></li>
+            <li><a href='#projects' onClick={() => setShowNavbar(false)}>Projects</a></li>
           </ul>
         </div>
       </div>

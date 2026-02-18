@@ -13,91 +13,103 @@ html,
 body {
   background-color: colors.$black;
   min-height: calc(100% - 56px * 2);
-  min-width: calc(100% - 56px * 2);
+  min-width: 100%;
+  overflow-x: hidden;
 }
 
 .body-wrapper {
   position: relative;
-  margin: rem(24) rem(36);
+  margin: rem(16) rem(20);
   min-height: calc(100vh - 24px * 2 - 92px);
-  min-width: calc(10vw - 24px * 2);
-  padding: rem(32);
+  padding: rem(20);
+  max-width: 100%;
+
+  @media (min-width: 640px) {
+    margin: rem(24) rem(36);
+    padding: rem(32);
+  }
 }
 
 .content-wrapper {
-  padding: rem(32);
-  margin-bottom: rem(64); 
+  padding: rem(20);
+  margin-bottom: rem(48);
   position: relative;
-  
+
+  @media (min-width: 640px) {
+    padding: rem(32);
+    margin-bottom: rem(64);
+  }
+
   h1,
   h2 {
-    padding: rem(32);
+    padding: rem(20) rem(20) rem(20) 0;
+    margin-left: rem(20);
   }
-  
+
+  @media (min-width: 640px) {
+
+    h1,
+    h2 {
+      padding: rem(32);
+    }
+  }
+
   h1 {
-    font-size: rem(96);
+    font-size: clamp(rem(36), 10vw, rem(96));
     color: colors.$white;
-    line-height: rem(100);
-    letter-spacing: -0.96;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: rem(48);
+    font-size: clamp(rem(28), 5vw, rem(48));
     color: colors.$green;
     line-height: rem(28);
     letter-spacing: -0.96;
-    margin-bottom: rem(28);
+    margin-bottom: rem(20);
+  }
+
+  @media (min-width: 640px) {
+    h2 {
+      margin-bottom: rem(28);
+    }
   }
 
   p {
     color: colors.$white;
-    font-size: rem(32);
-    line-height: rem(44);
-    letter-spacing: -0.32;
-    padding: rem(32);
+    font-size: clamp(rem(18), 2.5vw, rem(32));
+    line-height: 1.45;
+    letter-spacing: -0.32px;
+    padding: rem(20) rem(20) rem(20) 0;
+    margin-left: rem(20);
   }
-}
 
-@media (max-width: 640px) {
-  .content-wrapper {
-    h1 {
-      font-size: rem(62);
-      line-height: rem(62);
-    }
-
-    h2 {
-      font-size: rem(48);
-    }
-
+  @media (min-width: 640px) {
     p {
-      font-size: rem(32);
-      line-height: rem(46);
+      padding: rem(32);
+      line-height: rem(44);
     }
   }
 }
 
 a {
-    color: colors.$white;
-    background: colors.$black-lightest;
-    text-decoration: none;
+  color: colors.$white;
+  background: colors.$black-lightest;
+  text-decoration: none;
 
-    background:
-    linear-gradient(
-      to right,
+  background:
+    linear-gradient(to right,
       colors.$orange,
-      colors.$orange
-    ),
-    linear-gradient(
-      to right,
+      colors.$orange),
+    linear-gradient(to right,
       colors.$orange,
       colors.$purple,
-      colors.$green
-  );
-    background-size: 100% 3px, 0 3px;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 400ms;
-  
+      colors.$green);
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+
   &:hover,
   &:active,
   &:focus {
@@ -109,23 +121,33 @@ a {
 .landing-splash {
   position: relative;
   min-height: calc(100vh - 24px * 2 - 92px);
-  background: no-repeat left bottom -50px/40px 800px url('../../public/view-about.svg');
-  
+  background: no-repeat left bottom -30px/24px 480px url('../../public/view-about.svg');
+
+  @media (min-width: 640px) {
+    background: no-repeat left bottom -50px/40px 800px url('../../public/view-about.svg');
+  }
+
   .background-wrapper {
     height: calc(100% - 24px * 2);
-    width: calc(100vw - 36px * 2);
+    width: 100%;
+    max-width: 100vw;
     position: absolute;
     top: 0;
-    left: -36px;
+    left: 50%;
+    transform: translateX(-50%);
     background-image: url('../../public/landing-bg.svg');
+    background-size: cover;
+    background-position: left bottom;
 
     .landing__moon {
       background: no-repeat right/100% url('../../public/moon.svg');
-      width: 500px;
-      height: 285px;
+      width: min(500px, 85vw);
+      height: min(285px, 48vw);
+      max-width: 500px;
+      max-height: 285px;
 
       &-wrapper {
-        top: 400px;
+        top: clamp(200px, 45vh, 400px);
         right: 0;
         display: flex;
         align-items: center;
@@ -145,12 +167,10 @@ a {
   // left: calc(32px + 24px);
   // bottom: 24px;
   // background: no-repeat left 20px center/2px 100% url('../../public/line.svg');
-  background: no-repeat left 20px center/2px 100% linear-gradient(
-    105deg,
-    #56D364 39%,
-    #2EA043 50%,
-    #0D1117 96%
-  );  
+  background: no-repeat left 20px center/2px 100% linear-gradient(105deg,
+      #56D364 39%,
+      #2EA043 50%,
+      #0D1117 96%);
 }
 
 .projects-line {
@@ -161,10 +181,8 @@ a {
   // left: calc(32px + 24px);
   // bottom: 24px;
   // background: no-repeat left 20px center/2px 100% url('../../public/line.svg');
-  background: no-repeat left 20px center/2px 100% linear-gradient(
-    105deg,
-    #EA6045 33.3%,
-    #EA6045 66.6%,
-    #0D1117 96%
-  ), no-repeat left 20px center/50px 100% url('../../public/github.svg');  
+  background: no-repeat left 20px center/2px 100% linear-gradient(105deg,
+      #EA6045 33.3%,
+      #EA6045 66.6%,
+      #0D1117 96%), no-repeat left 20px center/50px 100% url('../../public/github.svg');
 }

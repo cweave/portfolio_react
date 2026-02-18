@@ -6,34 +6,59 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 8px;
+  padding: 0 rem(12);
+
+  @media (min-width: 640px) {
+    margin-top: 12px;
+    padding: 0;
+  }
 
   &__container {
     background-color: colors.$black-lighter;
-    width: 95vw;
-    height: 80px;
-    border-radius: 20px;
-    padding: rem(6) rem(24);
+    width: 100%;
+    max-width: 95vw;
+    height: 72px;
+    border-radius: 16px;
+    padding: rem(6) rem(16);
 
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 60px 1fr;
     place-content: center;
+    gap: rem(8);
+
+    @media (min-width: 640px) {
+      height: 80px;
+      border-radius: 20px;
+      padding: rem(6) rem(24);
+      grid-template-columns: 100px 1fr;
+    }
   }
 
   &__logo {
-    background: no-repeat center / 60px 60px url('../../../public/cw.png');
-    height: 60px;
-    width: 60px;
-  }  
+    background: no-repeat center / 48px 48px url('../../../public/cw.png');
+    height: 48px;
+    width: 48px;
+
+    @media (min-width: 640px) {
+      background-size: 60px 60px;
+      height: 60px;
+      width: 60px;
+    }
+  }
 
   &__navigation {
     place-self: center end;
     display: inline-flex;
     gap: rem(48);
 
-    a {      
+    a {
       text-transform: uppercase;
       font-size: rem(24);
+      padding: 0.5em 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
 
     ul {
@@ -44,12 +69,16 @@
 
     ul li:not(:last-child) {
       margin-right: 60px;
-    }        
+    }
   }
 }
-  
+
 .menu-icon {
   display: none;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: end;
 }
 
 @media (max-width: 768px) {
@@ -61,35 +90,41 @@
 @media (max-width: 640px) {
   .menu-icon {
     display: inline-flex;
-    justify-content: end;
     cursor: pointer;
   }
 
   .navbar__navigation {
-    position: absolute;
-    right: 0;
-    top: 95px;
-    right: 12px;
+    position: fixed;
+    top: 84px;
+    right: rem(12);
+    left: rem(12);
+    margin-left: auto;
+    width: 0;
+    min-height: 200px;
+    max-height: calc(100vh - 100px);
     background-color: colors.$black-lighter;
     border-radius: 20px;
-    width: 0px;
-    height: calc(100vh - 100px);
-    transition: all 0.3s ease-in;
+    transition: width 0.3s ease-in, opacity 0.2s ease-in;
     overflow: hidden;
-    z-index: 2;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 
     &.active {
-      width: 270px;
+      width: min(280px, calc(100vw - 24px));
     }
 
     ul {
-      display: flex;
       flex-direction: column;
       justify-content: start;
+      padding: rem(8) 0;
     }
 
     ul li {
-      padding: rem(24) rem(6);
+      padding: rem(16) rem(24);
+
+      a {
+        font-size: rem(20);
+      }
     }
   }
 }
