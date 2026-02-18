@@ -32,9 +32,8 @@ const Footer = () => {
           </a>
         </li>
         <li>
-          <a href="mailto:hi@christaweaver.com" className="email" title="Send an email to Christa!">
+          <a href="mailto:cweav3r@gmail.com" className="email" title="Send an email to Christa!">
             <Email />
-            <span>hi@christaweaver.com</span>
           </a>
         </li>
       </ul>
