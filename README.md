@@ -41,8 +41,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ### Deployment
 
-`netlify run build`: builds the application
+`npx netlify run build`: builds the application
 
-`netlify deploy`: builds a deployment preview
+`npx netlify deploy`: builds a deployment preview
 
-`netlify deploy --prod`: deploys to production
+`npx netlify deploy --prod`: deploys to production
